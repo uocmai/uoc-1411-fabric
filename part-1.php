@@ -13,6 +13,7 @@
 <body>
 	<!-- A canvas tag is required or Fabric.js doesn't know where to draw. -->
 	<canvas id="c" style="border:1px solid black;" ></canvas>
+	<canvas id="g" style="border:1px solid black;" ></canvas>
 		<script>
 	$(function () {
 	// reference canvas element (with id="c")
@@ -34,6 +35,25 @@
 		  height: 20
 		});
 		// "add" rectangle onto canvas
+		canvas.add(rect);
+		var canvasEl = document.getElementById('g');
+		var ctx = canvasEl.getContext('2d');
+		ctx.fillStyle = 'green';
+
+		ctx.translate(100, 100);
+		ctx.rotate(Math.PI / 180 * 45);
+		ctx.fillRect(-10, -10, 20, 20);
+		/* var canvas = new fabric.Canvas('g');
+		// create a rectangle with angle=45
+		var rect = new fabric.Rect({
+		  left: 100,
+		  top: 100,
+		  fill: 'green',
+		  width: 20,
+		  height: 20,
+		  angle: 45
+		}); */
+
 		canvas.add(rect);
 	});
 	</script>
