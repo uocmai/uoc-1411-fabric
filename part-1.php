@@ -13,7 +13,6 @@
 <body>
 	<!-- A canvas tag is required or Fabric.js doesn't know where to draw. -->
 	<canvas id="c" style="border:1px solid black;" ></canvas>
-	<canvas id="g" style="border:1px solid black;" ></canvas>
 		<script>
 	$(function () {
 	// reference canvas element (with id="c")
@@ -31,30 +30,23 @@
 		  left: 100,
 		  top: 100,
 		  fill: 'red',
-		  width: 20,
-		  height: 20
+		  width: 50,
+		  height: 50,
+		  // stroke: 'rgba(100,200,200,0.5)',
+		  // strokeWidth: 10,
 		});
 		// "add" rectangle onto canvas
 		canvas.add(rect);
-		var canvasEl = document.getElementById('g');
-		var ctx = canvasEl.getContext('2d');
-		ctx.fillStyle = 'green';
-
-		ctx.translate(100, 100);
-		ctx.rotate(Math.PI / 180 * 45);
-		ctx.fillRect(-10, -10, 20, 20);
-		/* var canvas = new fabric.Canvas('g');
-		// create a rectangle with angle=45
-		var rect = new fabric.Rect({
-		  left: 100,
-		  top: 100,
-		  fill: 'green',
-		  width: 20,
-		  height: 20,
-		  angle: 45
-		}); */
-
-		canvas.add(rect);
+		// erase entire canvas area
+		/* ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+		ctx.fillRect(20, 50, 20, 20);
+		//draw rectangle at new locaction
+		rect.set({ left: 20, top: 50 });
+		canvas.renderAll(); */
+		//chage rectangle's properties
+		rect.set('fill', 'red');
+		rect.set({ strokeWidth: 5, stroke: 'rgba(100,200,200,0.5)' });
+		rect.set('angle', 60).set('flipY', true);
 	});
 	</script>
 </body>
